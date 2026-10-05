@@ -1,3 +1,248 @@
 body {
-    background-color: skyblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    color: #222;
+}
+
+nav {
+    background: #222;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+h2 {
+    color: #444;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #222;
+    color: white;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+td a {
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+main > a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+main > a:hover {
+    background: #444;
+}
+
+.action-modifier {
+    display: inline-block;
+    padding: 7px 10px;
+    background: #e0e0e0;
+    color: #222;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.action-supprimer {
+    display: inline-block;
+    padding: 7px 10px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.action-modifier:hover,
+.action-supprimer:hover {
+    opacity: 0.8;
+}
+
+.flash-success {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background: #e8f5e9;
+    border: 1px solid #81c784;
+    border-radius: 5px;
+}
+
+.recherche-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.recherche-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.recherche-form button,
+.recherche-form a {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.recherche-form button {
+    background: #222;
+    color: white;
+}
+
+.recherche-form a {
+    background: #e0e0e0;
+    color: #222;
+}
+
+/* Formulaires */
+
+form:not(.recherche-form) {
+    max-width: 600px;
+    margin-top: 25px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+form:not(.recherche-form) label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+form:not(.recherche-form) input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+form:not(.recherche-form) input:focus {
+    outline: none;
+    border-color: #222;
+}
+
+form:not(.recherche-form) button {
+    padding: 10px 18px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form:not(.recherche-form) button:hover {
+    background: #444;
+}
+
+/* Erreurs de validation */
+
+form:not(.recherche-form) ul {
+    margin: -10px 0 15px;
+    padding: 0;
+    list-style: none;
+    color: #c62828;
+    font-size: 14px;
+}
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 25px;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #222;
+    background: white;
+}
+
+.pagination a:hover {
+    background: #222;
+    color: white;
+}
+
+.pagination .current {
+    background: #222;
+    color: white;
+    border-color: #222;
 }

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des membres</h1>
+
+    <form class="recherche-form" method="get" action="{{ path('app_membres') }}">
+        <input
+            type="text"
+            name="recherche"
+            placeholder="Rechercher un membre..."
+            value="{{ recherche|default('') }}"
+        >
+
+        <button type="submit">Rechercher</button>
+
+        <a href="{{ path('app_membres') }}">Réinitialiser</a>
+    </form>
+
+    <a href="{{ path('app_membre_nouveau') }}">
+        Ajouter un membre
+    </a>
+
+    {% if membres is empty %}
+
+        <p>Aucun membre enregistré.</p>
+
+    {% else %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Club</>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for membre in membres %}
+                    <tr>
+                        <td>{{ membre.id }}</td>
+                        <td>{{ membre.nom }}</td>
+                        <td>{{ membre.prenom }}</td>
+                        <td>{{ membre.email }}</td>
+                        <td>{{ membre.Club }}</td>
+
+                        <td>
+                            <a class="action-modifier" href="{{ path('app_membre_modifier', {id: membre.id}) }}">
+                                Modifier
+                            </a>
+
+                            <form method="post"
+                                action="{{ path('app_membre_supprimer', {'id': membre.id}) }}"
+                                style="display:inline;"
+                                onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce membre ?');">
+
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ membre.id) }}">
+
+                                <button type="submit" class="action-supprimer">
+                                    Supprimer
+                                </button>
+
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            {{ knp_pagination_render(membres, null, {
+                'query': {
+                    'recherche': recherche
+                }
+            }) }}
+        </div>
+
+    {% endif %}
+
+{% endblock %}
